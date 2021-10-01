@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './Home.js';
+import Header from './Header.js';
+import Footer from './Footer.js';
+import React from 'react';
+import Cadastro from './Cadastro.js';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Faq from './Faq.js';
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+      <Header />
+
+      <Switch> 
+        <Route path="/Cadastro">   
+          <Cadastro />   
+        </Route>
+
+        <Route path="/Faq">
+          <Faq/>
+        </Route> 
+
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+
+      <Footer />
+    
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
